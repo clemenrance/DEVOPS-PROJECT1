@@ -63,7 +63,6 @@ pipeline{
 
             script{
              sh 'docker build -t myuber .'
-             sh 'docker tag myuber:latest clemenrance/devops-project1:project1-image'
             }
         }
        }
