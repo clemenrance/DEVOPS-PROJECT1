@@ -66,5 +66,18 @@ pipeline{
             }
         }
        }
+       stage("Push Image to Docker-hub"){
+
+        steps{
+
+            script{
+                withCredentials([string(credentialsId: 'docker-auth', variable: 'Docker-cred')]){
+                    sh 'docker login -u clemenrance -p ${Docker-cred}'
+                    sh 'docker tag myuber:latest clemenrance/devops-project1:project1-image'
+                    sh 'docker push clemenrance/devops-project1:project1-image'
+                }
+            }
+        }
+       }
     }
 }
