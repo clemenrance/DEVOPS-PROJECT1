@@ -71,8 +71,8 @@ pipeline{
         steps{
 
             script{
-                withCredentials([string(credentialsId: 'docker-auth', variable: 'docker-cred')]){
-                    sh 'docker login -u clemenrance -p ${docker-cred}'
+                withCredentials([string(credentialsId: 'docker_auth', variable: 'docker_cred')]){
+                    sh 'docker login -u clemenrance -p ${docker_cred}'
                     sh 'docker tag myuber:latest clemenrance/devops-project1:project1-image'
                     sh 'docker push clemenrance/devops-project1:project1-image'
                 }
